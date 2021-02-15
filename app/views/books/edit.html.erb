@@ -1,0 +1,29 @@
+<style>
+  .edit {
+    padding-left: 30px;
+  }
+  .text-field, .text-area, .submit {
+    padding-bottom: 10px;
+  }
+</style>
+<div class="edit">
+  <h2>Editiong Book</h2>
+  <%= form_with model: @book, local: true do |f| %>
+  <div class="title">
+  <%= f.label :Title %>
+  </div>
+  <div class="text-field">
+  <%= f.text_field :title %>
+  </div>
+  <div class="body">
+  <%= f.label :Body %>
+  </div>
+  <div class="text-area">
+  <%= f.text_area :body %>
+  </div>
+  <div class="submit">
+    <%= f.submit "Update Book" %>
+  </div>
+  <% end %>
+  <%= link_to "Show", book_path(@book) %> | <%= link_to "Back", books_path %>
+</div>

@@ -1,0 +1,47 @@
+<style>
+
+  .title {
+    pdiing-left:30px
+  }
+
+  main {
+    width: 100%;
+    height: 100%;
+    padding-left: 30px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  td {
+    padding-top: 5px;
+  }
+</style>
+<main>
+<%= notice %>
+<h2>Books</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+        <td><%= link_to "Show", book_path(book) %> <%= link_to "Edit", edit_book_path(book) %> <%= link_to "Destroy", book_path(book), method: :delete %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+<h2>New book</h2>
+
+<%= render 'books/create', book: @book %>
+</main>
